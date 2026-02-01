@@ -1,16 +1,18 @@
-let mainContainer = document.querySelector("container");
-
+let mainContainer = document.querySelector("#container");
 
 function createGrid (squares) {
+    let squareSize = 960 / squares;
     for (let i = 0; i < squares*squares; i++) {
-        let squareSize = 960 / squares;
         let newSquare = document.createElement("div");
-        newSquare.width = squareSize;
-        newSquare.height = squareSize;
-        newSquare.border = "1pt solid black"
+        newSquare.style.width = squareSize+"px";
+        newSquare.style.height = squareSize+"px";
+        newSquare.style.border = "1pt solid black";
+        newSquare.style.boxSizing = "border-box";
         newSquare.addEventListener("mouseenter", () => {
-            newSquare.backgroundColor = "black";
-        })
+            newSquare.style.backgroundColor = "black";
+        });
+        mainContainer.appendChild(newSquare);
     }
 }
 
+createGrid(16);
