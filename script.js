@@ -2,9 +2,14 @@ let mainContainer = document.querySelector("#container");
 // New Grid button
 let newGridButton = document.querySelector("#new-grid-btn");
 newGridButton.addEventListener("click", () => {
-    mainContainer.innerHTML = ""; // innerHTML is secure when used for emptying 
-    let gridSize = parseInt(prompt("Enter the number of squares: "));
-    createGrid(gridSize);
+    let gridSize = parseInt(prompt("Enter the number of squares: (100 max)"));
+    if (gridSize > 100) {
+        alert("Error: 100 squares max")
+    }
+    else {
+        mainContainer.innerHTML = ""; // innerHTML is secure when used for emptying 
+        createGrid(gridSize);   
+    }
 })
 
 // Create grid function
