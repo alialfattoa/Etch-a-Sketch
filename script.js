@@ -1,5 +1,13 @@
 let mainContainer = document.querySelector("#container");
+// New Grid button
+let newGridButton = document.querySelector("#new-grid-btn");
+newGridButton.addEventListener("click", () => {
+    mainContainer.innerHTML = ""; // innerHTML is secure when used for emptying 
+    let gridSize = parseInt(prompt("Enter the number of squares: "));
+    createGrid(gridSize);
+})
 
+// Create grid function
 function createGrid (squares) {
     let squareSize = 960 / squares;
     for (let i = 0; i < squares*squares; i++) {
